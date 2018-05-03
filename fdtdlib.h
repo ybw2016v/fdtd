@@ -9,4 +9,13 @@ struct stdgrid
     struct stdgrid * p1;
     struct stdgrid * p2;
 };
+struct stdgridp
+{
+    struct stdgrid * ex;
+    struct stdgrid * ey;
+    struct stdgrid * ez;
+    struct stdgrid * bx;
+    struct stdgrid * by;
+    struct stdgrid * bz;    
+};
 
