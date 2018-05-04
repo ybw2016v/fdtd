@@ -22,3 +22,7 @@ struct stdgridp calst()//网格初始化。
     p1->bz->p1=(struct stdgrid *)malloc(sizeof(struct stdgrid));
     return *p1;
 }
+struct name_t
+{
+    
+};
