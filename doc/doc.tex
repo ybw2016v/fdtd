@@ -1,0 +1,33 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\title{利用FDTD法八木模拟天线电参数}
+\author{郁博文 \and 孙浩}
+\date{\today}
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\section{摘要}
+\paragraph{自从1873年麦克斯韦（Maxwell）从理论上预言电磁波的存在，并于1897年由马可尼（Marconi）首次获得一个完整的无线电报系统专利以来，伴随科学技术的不断进步，无线电技术在电视、广播、移动通信、导航、卫星等领域取得了极为丰富的成果。}
+\paragraph{天线是任何无线电通信系统都离不开的重要前端器件。天线的任务是将发射机输出的高频电流能量（导波）转换成电磁波辐射出去，或将空间电波信号转换成高频电流能量送给接收机。为了能良好的实现上述目的，要求天线具有一定的方向特性，较高的转换效率，能满足系统正常工作的频带宽度。天线作为无线电系统的不可缺少的重要部件，其本身的质量直接影响无线电系统的整体性能。}
+\paragraph{八木天线也叫做“引向天线”、“八木宇田天线”（Yagi-Uda antenna）、“寄生天线”，是一种定向天线。这种天线是1928年由日本天线专家八木秀次和宇田新太郎两人设计的。因为八木天线具有增益高、方向性强、结构简单的优点，它被广泛应用在无线电测向和长距离无线电通信。但是，若使用八木天线以收看模拟电视，容易受天气及地形环境所影响，导致电视画面出现雪花、残影等的现象。}
+\paragraph{时域有限差分法（Finite Different Time Domain，FDTD）是一种电磁场数值计算的新方法，对电磁场的分量E、H在空间和时间上采取交替抽样的离散方式，应用这种离散方式将含时间变量的麦克斯韦旋度方程转化为一组差分方程，并在时间轴上逐步推进地求解空间电磁场。}
+\paragraph{这篇文章作者用时域有限差分法（FDTD）计算和模拟八木天线的电参数，从而探讨使八木天线的各个参数达到最优的天线构造。}
+\paragraph{关键字：八木天线 FDTD 电磁学 无线电 麦克斯韦方程组 数值计算}
+\newpage
+\section{天线基本原理}
+\subsection{基本振子辐射原理}
+\paragraph{尽管各类天线的结构、特性各有不同，但是分析他们的基础却是建立在电、磁基本振子的辐射机理上。}
+\subsubsection{电基本振子}
+\paragraph{电基本振子（Electric Short Dipole）又称电流元，他是一段理想的高频电流直导线，其长度l远小于波长$\lambda$，同时振子沿线的电流处处等幅同相。如图1所示，电磁场理论中已经给出了在球坐标系原点O沿轴放置的点基本振子在无限大自由空间中场强的表达式：}
+\begin{align}
+H_{r} & = 0 \\ H_{\theta} & = 0 \\ H_{\varphi} & = \frac{Il}{4\pi}\sin \theta(j\frac{k}{r}+\frac{1}{r^2})e^{-jkr}\\
+E_{r} & = \frac{Il}{4\pi}\frac{2}{\omega \varepsilon_{0}}\cos \theta(\frac{k}{r^2}-j\frac{1}{r^3})e^(-jkr)\\
+E_{\theta} & = \frac{Il}{4\pi}\frac{1}{\omega \varepsilon_{0}}\sin \theta(j\frac{k^2}{r}+\frac{k}{r^2}-j\frac{1}{r^3})e^{-jkr} \\
+E_{\varphi} & = 0
+\end{align}
+
+\end{document}
+
