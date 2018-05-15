@@ -1,9 +1,9 @@
 #include "fdtdlib.h"
 struct stdgridp calst();
-int calf(struct stdgrid * head)
-{
+// int calf(struct stdgrid * head)
+// {
 
-}
+// }
 struct stdgridp calst()//网格初始化。
 {
     struct stdgridp * p1=NULL;//创建指针。
@@ -22,7 +22,7 @@ struct stdgridp calst()//网格初始化。
     p1->bz->p1=(struct stdgrid *)malloc(sizeof(struct stdgrid));
     return *p1;
 }
-struct name_t
-{
+// struct name_t
+// {
     
-};
+// };
