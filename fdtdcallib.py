@@ -1,7 +1,10 @@
-import numpy as np
-import numpy.ctypeslib as npct
 import ctypes
 from ctypes import c_int
+
+import numpy as np
+import numpy.ctypeslib as npct
+
+
 # python 面向对象编程语言
 class fdtdcallib(object):
     # 对类进行声明
