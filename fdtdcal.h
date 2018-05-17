@@ -10,7 +10,7 @@ int intarry(double adet);
 int cal(int n);
 int initc(double *cca,double * ccb,double * ccp,double * ccq);
 // 全局变量
-double det=2;//网格细度
+double det=1;//网格细度
 int S0=0;//矩阵行列标识
 int S1=0;//矩阵行列标识
 int S2=0;//矩阵行列标识

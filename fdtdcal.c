@@ -47,10 +47,10 @@ int cal(int n)
 // 计算核心函数
 // n为计算次数
     double * tem;//暂存指针。
-    printf("%d %d %d\n",I,J,K);
+    // printf("%d %d %d\n",I,J,K);
     for (int ii = 0; ii < n; ii++)
     {
-        // printf("%s \n","85");
+        // printf("%d \n",ii);
         for(int i = 2; i < I-2; i++)
         {
             // printf("%s \n","777");
@@ -67,6 +67,10 @@ int cal(int n)
                     bx2[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*bx1[S0*i+S1*j+S2*k]-cq[0*i+S1*j+S2*k]*(1/det)*((ez1[S0*i+S1*j+S2*k]-ez1[S0*i+S1*(j-1)+S2*k])-ey1[S0*i+S1*j+S2*k]+ey1[S0*i+S1*j+S2*(k-1)]);
                     by2[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*by1[S0*i+S1*j+S2*k]-cq[0*i+S1*j+S2*k]*(1/det)*((ex1[S0*i+S1*j+S2*k]-ex1[S0*i+S1*j+S2*(k-1)])-ez1[S0*i+S1*j+S2*k]+ez1[S0*(i-1)+S1*j+S2*(k)]);
                     bz2[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*bz1[S0*i+S1*j+S2*k]-cq[0*i+S1*j+S2*k]*(1/det)*((ey1[S0*i+S1*j+S2*k]-ey1[S0*(i-1)+S1*j+S2*(k)])-ex1[S0*i+S1*j+S2*k]+ey1[S0*(i)+S1*(j-1)+S2*(k)]);
+                    // if (i==32&&j==32&&k==15)
+                    // {
+                    //     printf("%f \n",ez1[S0*i+S1*j+S2*k]);
+                    // }
                 }
                 
             }
@@ -74,6 +78,7 @@ int cal(int n)
         }
     // printf("%s \n","66");
     // 指针交换。
+    printf("%f \n",ez1[S0*32+S1*32+S2*15]);
     tem=ex1;
     ex1=ex2;
     ex2=tem;
@@ -97,6 +102,7 @@ int cal(int n)
     tem=bz1;
     bz1=bz2;
     bz2=tem;
+    printf("%f \n",ez1[S0*32+S1*32+S2*15]);
     }
     
     return 0;
