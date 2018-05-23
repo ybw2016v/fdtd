@@ -23,12 +23,12 @@ double * by1;
 double * bz1;
 
 int flog=0;
-double * ex2;
-double * ey2;
-double * ez2;
-double * bx2;
-double * by2;
-double * bz2;
+// double * ex2;
+// double * ey2;
+// double * ez2;
+// double * bx2;
+// double * by2;
+// double * bz2;
 double * ca;//介质参数
 double * cb;
 double * cp;

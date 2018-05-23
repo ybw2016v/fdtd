@@ -12,7 +12,7 @@ class fdtdcallib(object):
         # 初始化函数，引入动态链接库
         self.libc=npct.load_library("fdtdcal", ".")
         pass
-    def initcal(self,ex1,ey1,ez1,bx1,by1,bz1,ex2,ey2,ez2,bx2,by2,bz2):
+    def initcal(self,ex1,ey1,ez1,bx1,by1,bz1):
         # 类方法
         # 将计算空间电磁场的十二个分量传入C模块
         libcd=self.libc
@@ -21,17 +21,17 @@ class fdtdcallib(object):
         dd=np.array(np.shape(ex1),dtype='int32')
         libcd.initecal.restype = c_int
         libcd.initbcal.restype = c_int
-        libcd.inite2cal.restype = c_int
-        libcd.initb2cal.restype = c_int
+        # libcd.inite2cal.restype = c_int
+        # libcd.initb2cal.restype = c_int
         libcd.initecal.argtypes=[array_1d_double,array_1d_double,array_1d_double,npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS'),npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS')]
         libcd.initbcal.argtypes=[array_1d_double,array_1d_double,array_1d_double,npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS'),npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS')]
-        libcd.inite2cal.argtypes=[array_1d_double,array_1d_double,array_1d_double,npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS'),npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS')]
-        libcd.initb2cal.argtypes=[array_1d_double,array_1d_double,array_1d_double,npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS'),npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS')]
+        # libcd.inite2cal.argtypes=[array_1d_double,array_1d_double,array_1d_double,npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS'),npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS')]
+        # libcd.initb2cal.argtypes=[array_1d_double,array_1d_double,array_1d_double,npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS'),npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS')]
         # 开始调用函数
         libcd.initecal(ex1,ey1,ez1,ff,dd)
         libcd.initbcal(bx1,by1,bz1,ff,dd)
-        libcd.inite2cal(ex2,ey2,ez2,ff,dd)
-        libcd.initb2cal(bx2,by2,bz2,ff,dd)
+        # libcd.inite2cal(ex2,ey2,ez2,ff,dd)
+        # libcd.initb2cal(bx2,by2,bz2,ff,dd)
         return 'OK'
 
 
