@@ -49,18 +49,21 @@ pbar = ProgressBar()
 
 num=500
 
+fdtd.initmur(299792458.0,2.309401076758503e-12,0.0011991698319999999)
+
 k=np.zeros(num)
 for iii in pbar(range(0,num)):
     if iii<=100:
-        ez1[32,32,31:33]=1*math.sin(1*0.01451039491387374*iii)#2*omega*dt*
+        ez1[10,32,31:33]=1*math.sin(1*0.01451039491387374*iii)#2*omega*dt*
     else:
-        ez1[32,32,31:33]=0
+        ez1[10,32,31:33]=0
 #     ey1[int(N/2),int(N/2),int(N/2)]=0
 #     ez1[int(N/2),int(N/2),int(N/2)]=0
     # print(iii)
     # print(ez1[16,16,11:24])
     # pbar.update(int((iii / (500 - 1)) * 100))
-    fdtd.callib(1)
+    # fdtd.callib(1)
+    fdtd.calmur1lib(1)
     # print(ez1[16,16,11:24])
     # print('\n')
     k[iii]=ez1[16,17,15]

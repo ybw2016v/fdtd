@@ -61,5 +61,20 @@ class fdtdcallib(object):
         libcd.cal.argtypes=[c_int]
         libcd.cal(nn)
         return 'OK'
-
+    def initmur(self,c,dt,dx):
+        libcd=self.libc
+        cc=np.array(c,dtype='float64')
+        ddt=np.array(dt,dtype='float64')
+        ddx=np.array(dx,dtype='float64')
+        libcd.initmur1.restype=c_int
+        libcd.initmur1.argtypes=[ctypes.c_double,ctypes.c_double,ctypes.c_double]
+        libcd.initmur1(cc,ddt,ddx)
+        return 'OK'
+    def calmur1lib(self,n):
+        libcd=self.libc
+        nn=np.array(n,dtype=c_int)
+        libcd.calmur1.restype=c_int
+        libcd.calmur1.argtypes=[c_int]
+        libcd.calmur1(nn)
+        return 'OK'
     pass

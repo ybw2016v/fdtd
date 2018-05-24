@@ -9,6 +9,8 @@ int initb2cal(double bx[],double by[],double bz[],int strides[],int shapes[]);
 int intarry(double adet);
 int cal(int n);
 int initc(double *cca,double * ccb,double * ccp,double * ccq);
+int calmur1(int n);
+int initmur1(double cc,double cdt,double cdx);
 // 全局变量
 double det=1;//网格细度
 int S0=0;//矩阵行列标识
@@ -33,3 +35,8 @@ double * ca;//介质参数
 double * cb;
 double * cp;
 double * cq;
+// mur参数
+double c;
+double dt;
+double dx;
+

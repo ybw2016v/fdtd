@@ -46,34 +46,16 @@ int cal(int n)
 {
 // 计算核心函数
 // n为计算次数
-    // double * tem;//暂存指针。
-    // printf("%d %d %d\n",I,J,K);
-    // printf("\n");
-    // printf("************\n");
-    // for (int i = 12; i < 25; i++)
-    // {
-    //     printf("%f ",ez1[S0*16+S1*16+S2*i]);
-    // }
-    // printf("\n");
-    // printf("*************\n");
     for (int ii = 0; ii < n; ii++)
     {
-        // printf("%d \n",ii);
         for(int i = 2; i < I-2; i++)
         {
-            // printf("%s \n","777");
             for(int j = 2; j < J-2; j++)
             {
-                //printf("%s","++");
                 #pragma omp parallel for
                 for(int k = 2; k < K-2; k++)
                 {
-                    // 迭代核心
                     ex1[S0*i+S1*j+S2*k]=ca[0*i+S1*j+S2*k]*ex1[S0*i+S1*j+S2*k]+cb[S0*i+S1*j+S2*k]*(1/det)*((bz1[S0*i+S1*j+S2*(k-1)]-bz1[S0*i+S1*(j-1)+S2*(k-1)])-by1[S0*i+S1*(j-1)+S2*k]+by1[S0*i+S1*(j-1)+S2*(k-1)]);
-                    // if (i==32&&j==32&&k==15)
-                    // {
-                    //     printf("%f \n",ez1[S0*i+S1*j+S2*k]);
-                    // }
                 }
                 
             }
@@ -81,19 +63,12 @@ int cal(int n)
         }
     for(int i = 2; i < I-2; i++)
         {
-            // printf("%s \n","777");
             for(int j = 2; j < J-2; j++)
             {
-                //printf("%s","++");
                 #pragma omp parallel for
                 for(int k = 2; k < K-2; k++)
                 {
-                    // 迭代核心
                     ey1[S0*i+S1*j+S2*k]=ca[S0*i+S1*j+S2*k]*ey1[S0*i+S1*j+S2*k]+cb[S0*i+S1*j+S2*k]*(1/det)*((bx1[S0*(i-1)+S1*j+S2*k]-bx1[S0*(i-1)+S1*j+S2*(k-1)])-bz1[S0*i+S1*j+S2*(k-1)]+bz1[S0*(i-1)+S1*j+S2*(k-1)]);
-                    // if (i==32&&j==32&&k==15)
-                    // {
-                    //     printf("%f \n",ez1[S0*i+S1*j+S2*k]);
-                    // }
                 }
                 
             }
@@ -102,19 +77,12 @@ int cal(int n)
 
     for(int i = 2; i < I-2; i++)
         {
-            // printf("%s \n","777");
             for(int j = 2; j < J-2; j++)
             {
-                //printf("%s","++");
                 #pragma omp parallel for
                 for(int k = 2; k < K-2; k++)
                 {
-                    // 迭代核心
                     ez1[S0*i+S1*j+S2*k]=ca[S0*i+S1*j+S2*k]*ez1[S0*i+S1*j+S2*k]+cb[S0*i+S1*j+S2*k]*(1/det)*((by1[S0*i+S1*(j-1)+S2*k]-by1[S0*(i-1)+S1*(j-1)+S2*(k)])-bx1[S0*(i-1)+S1*j+S2*k]+bx1[S0*(i-1)+S1*(j-1)+S2*(k)]);
-                    // if (i==32&&j==32&&k==15)
-                    // {
-                    //     printf("%f \n",ez1[S0*i+S1*j+S2*k]);
-                    // }
                 }
                 
             }
@@ -122,19 +90,12 @@ int cal(int n)
         }
     for(int i = 2; i < I-2; i++)
         {
-            // printf("%s \n","777");
             for(int j = 2; j < J-2; j++)
             {
-                //printf("%s","++");
                 #pragma omp parallel for
                 for(int k = 2; k < K-2; k++)
                 {
-                    // 迭代核心
                     bx1[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*bx1[S0*i+S1*j+S2*k]-cq[S0*i+S1*j+S2*k]*(1/det)*((ez1[S0*(i+1)+S1*(j+1)+S2*k]-ez1[S0*(i+1)+S1*j+S2*k])-ey1[S0*(i+1)+S1*j+S2*(k+1)]+ey1[S0*(i+1)+S1*j+S2*k]);
-                    // if (i==32&&j==32&&k==15)
-                    // {
-                    //     printf("%f \n",ez1[S0*i+S1*j+S2*k]);
-                    // }
                 }
                 
             }
@@ -142,19 +103,12 @@ int cal(int n)
         }
     for(int i = 2; i < I-2; i++)
         {
-            // printf("%s \n","777");
             for(int j = 2; j < J-2; j++)
             {
-                //printf("%s","++");
                 #pragma omp parallel for
                 for(int k = 2; k < K-2; k++)
                 {
-                    // 迭代核心
                     by1[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*by1[S0*i+S1*j+S2*k]-cq[S0*i+S1*j+S2*k]*(1/det)*((ex1[S0*i+S1*(j+1)+S2*(k+1)]-ex1[S0*i+S1*(j+1)+S2*k])-ez1[S0*(i+1)+S1*(j+1)+S2*k]+ez1[S0*i+S1*(j+1)+S2*(k)]);
-                    // if (i==32&&j==32&&k==15)
-                    // {
-                    //     printf("%f \n",ez1[S0*i+S1*j+S2*k]);
-                    // }
                 }
                 
             }
@@ -162,63 +116,19 @@ int cal(int n)
         }
     for(int i = 2; i < I-2; i++)
         {
-            // printf("%s \n","777");
             for(int j = 2; j < J-2; j++)
             {
-                //printf("%s","++");
                 #pragma omp parallel for
                 for(int k = 2; k < K-2; k++)
                 {
                     // 迭代核心
                     bz1[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*bz1[S0*i+S1*j+S2*k]-cq[S0*i+S1*j+S2*k]*(1/det)*((ey1[S0*(i+1)+S1*j+S2*(k+1)]-ey1[S0*i+S1*j+S2*(k+1)])-ex1[S0*i+S1*(j+1)+S2*(k+1)]+ex1[S0*(i)+S1*(j)+S2*(k+1)]);
-                    // if (i==32&&j==32&&k==15)
-                    // {
-                    //     printf("%f \n",ez1[S0*i+S1*j+S2*k]);
-                    // }
                 }
                 
             }
-            
         }
-
-
-
-    // printf("%s \n","66");
-    // 指针交换。
-    // printf("%f \n",ez1[S0*32+S1*32+S2*15]);
-    // tem=ex1;
-    // ex1=ex2;
-    // ex2=tem;
-
-    // tem=ey1;
-    // ey1=ey2;
-    // ey2=tem;
-
-    // tem=ez1;
-    // ez1=ez2;
-    // ez2=tem;
-
-    // tem=bx1;
-    // bx1=bx2;
-    // bx2=tem;
-
-    // tem=by1;
-    // by1=by2;
-    // by2=tem;
-
-    // tem=bz1;
-    // bz1=bz2;
-    // bz2=tem;
-    // printf("%f \n",ez1[S0*32+S1*32+S2*15]);
     }
-    // printf("\n");
-    // printf("************\n");
-    // for (int i = 12; i < 25; i++)
-    // {
-    //     printf("%f ",ez1[S0*16+S1*16+S2*i]);
-    // }
-    // printf("\n");
-    // printf("*************\n");
+
     
     return 0;
 }
@@ -236,5 +146,371 @@ int initc(double *cca,double * ccb,double * ccp,double * ccq)
     cp=ccp;
     cq=ccq;
     return 0;
+}
+int initmur1(double cc,double cdt,double cdx)
+{
+    // mur边界初始化
+    c=cc;
+    dt=cdt;
+    dx=cdx;
+    return 0;
+}
+int calmur1(int n)
+{
+    double x1ey0[J][K];
+    double xIey0[J][K];
+    double x1ez0[J][K];
+    double xIez0[J][K];
+
+
+    double y1ex0[I][K];
+    double yIex0[I][K];
+    double y1ez0[I][K];
+    double yIez0[I][K];
+
+    double z1ex0[I][J];
+    double zIex0[I][J];
+    double z1ey0[I][J];
+    double zIey0[I][J];
+    //带有mur边界的计算函数
+    for (int ii = 0; ii < n; ii++)
+    {
+        // 边界层的取值
+
+        // x方向边界。
+        for(int j = 2; j < J-2; j++)
+    {
+        int i=1;
+        for (int k = 0; k < K-2; k++)
+        {
+            x1ey0[j][k]=ey1[S0*i+S1*j+S2*k];
+            
+        }
+    }
+        for(int j = 2; j < J-2; j++)
+    {
+        int i=I-1;
+        for (int k = 0; k < K-2; k++)
+        {
+            xIey0[j][k]=ey1[S0*i+S1*j+S2*k];
+            
+        }
+    }
+
+
+
+        for(int j = 2; j < J-2; j++)
+    {
+        int i=1;
+        for (int k = 0; k < K-2; k++)
+        {
+            x1ez0[j][k]=ez1[S0*i+S1*j+S2*k];
+            
+        }
+    }
+        for(int j = 2; j < J-2; j++)
+    {
+        int i=I-1;
+        for (int k = 0; k < K-2; k++)
+        {
+            xIez0[j][k]=ez1[S0*i+S1*j+S2*k];
+            
+        }
+    }
+
+
+
+    // y方向
+    for(int i = 2; i < I-2; i++)
+    {
+        int j=2;
+        for (int k = 0; k < K-2; k++)
+        {
+            y1ex0[i][k]=ex1[S0*i+S1*j+S2*k];
+            
+        }
+    }
+        for(int i = 2; i < I-2; i++)
+    {
+        int j=J-3;
+        for (int k = 0; k < K-2; k++)
+        {
+            yIex0[i][k]=ex1[S0*i+S1*j+S2*k];
+            
+        }
+    }
+
+
+
+        for(int i = 2; i < I-2; i++)
+    {
+        int j=2;
+        for (int k = 0; k < K-2; k++)
+        {
+            y1ez0[i][k]=ez1[S0*i+S1*j+S2*k];
+            
+        }
+    }
+        for(int i = 2; i < I-2; i++)
+    {
+        int j=J-3;
+        for (int k = 0; k < K-2; k++)
+        {
+            yIez0[i][k]=ez1[S0*i+S1*j+S2*k];
+            
+        }
+    }
+        // z方向
+
+
+    for(int i = 2; i < I-2; i++)
+    {
+        int k=2;
+        for (int j = 0; j < J-2; j++)
+        {
+            z1ex0[i][j]=ex1[S0*i+S1*j+S2*k];
+        }
+    }
+    for(int i = 2; i < I-2; i++)
+    {
+        int k=K-3;
+        for (int j = 0; j < J-2; j++)
+        {
+            z1ex0[i][j]=ex1[S0*i+S1*j+S2*k];
+        }
+    }
+    for(int i = 2; i < I-2; i++)
+    {
+        int k=2;
+        for (int j = 0; j < J-2; j++)
+        {
+            z1ey0[i][j]=ey1[S0*i+S1*j+S2*k];
+        }
+    }
+    for(int i = 2; i < I-2; i++)
+    {
+        int k=K-3;
+        for (int j = 0; j < J-2; j++)
+        {
+            z1ey0[i][j]=ey1[S0*i+S1*j+S2*k];
+        }
+    }
+
+
+
+        // 计算核心
+        for(int i = 2; i < I-2; i++)
+        {
+            for(int j = 2; j < J-2; j++)
+            {
+                #pragma omp parallel for
+                for(int k = 2; k < K-2; k++)
+                {
+                    ex1[S0*i+S1*j+S2*k]=ca[0*i+S1*j+S2*k]*ex1[S0*i+S1*j+S2*k]+cb[S0*i+S1*j+S2*k]*(1/det)*((bz1[S0*i+S1*j+S2*(k-1)]-bz1[S0*i+S1*(j-1)+S2*(k-1)])-by1[S0*i+S1*(j-1)+S2*k]+by1[S0*i+S1*(j-1)+S2*(k-1)]);
+                }
+                
+            }
+            
+        }
+    for(int i = 2; i < I-2; i++)
+        {
+            for(int j = 2; j < J-2; j++)
+            {
+                #pragma omp parallel for
+                for(int k = 2; k < K-2; k++)
+                {
+                    ey1[S0*i+S1*j+S2*k]=ca[S0*i+S1*j+S2*k]*ey1[S0*i+S1*j+S2*k]+cb[S0*i+S1*j+S2*k]*(1/det)*((bx1[S0*(i-1)+S1*j+S2*k]-bx1[S0*(i-1)+S1*j+S2*(k-1)])-bz1[S0*i+S1*j+S2*(k-1)]+bz1[S0*(i-1)+S1*j+S2*(k-1)]);
+                }
+                
+            }
+            
+        }
+
+    for(int i = 2; i < I-2; i++)
+        {
+            for(int j = 2; j < J-2; j++)
+            {
+                #pragma omp parallel for
+                for(int k = 2; k < K-2; k++)
+                {
+                    ez1[S0*i+S1*j+S2*k]=ca[S0*i+S1*j+S2*k]*ez1[S0*i+S1*j+S2*k]+cb[S0*i+S1*j+S2*k]*(1/det)*((by1[S0*i+S1*(j-1)+S2*k]-by1[S0*(i-1)+S1*(j-1)+S2*(k)])-bx1[S0*(i-1)+S1*j+S2*k]+bx1[S0*(i-1)+S1*(j-1)+S2*(k)]);
+                }
+                
+            }
+            
+        }
+    for(int i = 2; i < I-2; i++)
+        {
+            for(int j = 2; j < J-2; j++)
+            {
+                #pragma omp parallel for
+                for(int k = 2; k < K-2; k++)
+                {
+                    bx1[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*bx1[S0*i+S1*j+S2*k]-cq[S0*i+S1*j+S2*k]*(1/det)*((ez1[S0*(i+1)+S1*(j+1)+S2*k]-ez1[S0*(i+1)+S1*j+S2*k])-ey1[S0*(i+1)+S1*j+S2*(k+1)]+ey1[S0*(i+1)+S1*j+S2*k]);
+                }
+                
+            }
+            
+        }
+    for(int i = 2; i < I-2; i++)
+        {
+            for(int j = 2; j < J-2; j++)
+            {
+                #pragma omp parallel for
+                for(int k = 2; k < K-2; k++)
+                {
+                    by1[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*by1[S0*i+S1*j+S2*k]-cq[S0*i+S1*j+S2*k]*(1/det)*((ex1[S0*i+S1*(j+1)+S2*(k+1)]-ex1[S0*i+S1*(j+1)+S2*k])-ez1[S0*(i+1)+S1*(j+1)+S2*k]+ez1[S0*i+S1*(j+1)+S2*(k)]);
+                }
+                
+            }
+            
+        }
+    for(int i = 2; i < I-2; i++)
+        {
+            for(int j = 2; j < J-2; j++)
+            {
+                #pragma omp parallel for
+                for(int k = 2; k < K-2; k++)
+                {
+                    // 迭代核心
+                    bz1[S0*i+S1*j+S2*k]=cp[0*i+S1*j+S2*k]*bz1[S0*i+S1*j+S2*k]-cq[S0*i+S1*j+S2*k]*(1/det)*((ey1[S0*(i+1)+S1*j+S2*(k+1)]-ey1[S0*i+S1*j+S2*(k+1)])-ex1[S0*i+S1*(j+1)+S2*(k+1)]+ex1[S0*(i)+S1*(j)+S2*(k+1)]);
+                }
+                
+            }
+        }
+    
+
+
+
+
+    for(int j = 2; j < J-2; j++)
+    {
+        int i=1;
+        for (int k = 0; k < K-2; k++)
+        {
+            
+            ey1[S0*i+S1*j+S2*k]=x1ey0[j][k]+((c*dt-dx)/(c*dt+dx))*(ey1[S0*(i+1)+S1*j+S2*k]-ey1[S0*i+S1*j+S2*k]);
+        }
+    }
+    for(int j = 2; j < J-2; j++)
+    {
+        int i=I-2;
+        for (int k = 0; k < K-2; k++)
+        {
+            
+            ey1[S0*i+S1*j+S2*k]=xIey0[j][k]+((c*dt-dx)/(c*dt+dx))*(ey1[S0*(i+1)+S1*j+S2*k]-ey1[S0*i+S1*j+S2*k]);
+        }
+    }
+
+        for(int j = 2; j < J-2; j++)
+    {
+        int i=1;
+        for (int k = 0; k < K-2; k++)
+        {
+            
+            ez1[S0*i+S1*j+S2*k]=x1ez0[j][k]+((c*dt-dx)/(c*dt+dx))*(ez1[S0*(i+1)+S1*j+S2*k]-ez1[S0*i+S1*j+S2*k]);
+        }
+    }
+    for(int j = 2; j < J-2; j++)
+    {
+        int i=I-2;
+        for (int k = 0; k < K-2; k++)
+        {
+            
+            ez1[S0*i+S1*j+S2*k]=xIez0[j][k]+((c*dt-dx)/(c*dt+dx))*(ez1[S0*(i-1)+S1*j+S2*k]-ez1[S0*i+S1*j+S2*k]);
+        }
+    }
+
+
+    // y方向
+
+    for(int i = 2; i < I-2; i++)
+    {
+        int j=1;
+        for (int k = 0; k < K-2; k++)
+        {
+            
+            ex1[S0*i+S1*j+S2*k]=y1ex0[j][k]+((c*dt-dx)/(c*dt+dx))*(ex1[S0*(i+0)+S1*(j+1)+S2*k]-ex1[S0*i+S1*j+S2*k]);
+        }
+    }
+    for(int i = 2; i < I-2; i++)
+    {
+        int j=J-2;
+        for (int k = 0; k < K-2; k++)
+        {
+            
+            ex1[S0*i+S1*j+S2*k]=y1ex0[j][k]+((c*dt-dx)/(c*dt+dx))*(ex1[S0*(i+0)+S1*(j-1)+S2*k]-ex1[S0*i+S1*j+S2*k]);
+        }
+    }
+
+    for(int i = 2; i < I-2; i++)
+    {
+        int j=1;
+        for (int k = 0; k < K-2; k++)
+        {
+            
+            ez1[S0*i+S1*j+S2*k]=y1ez0[j][k]+((c*dt-dx)/(c*dt+dx))*(ez1[S0*(i+0)+S1*(j+1)+S2*(k+0)]-ez1[S0*i+S1*j+S2*k]);
+        }
+    }
+    for(int i = 2; i < I-2; i++)
+    {
+        int j=J-2;
+        for (int k = 0; k < K-2; k++)
+        {
+            
+            ez1[S0*i+S1*j+S2*k]=y1ez0[j][k]+((c*dt-dx)/(c*dt+dx))*(ez1[S0*(i+0)+S1*(j-1)+S2*k]-ez1[S0*i+S1*j+S2*k]);
+        }
+    
+    }
+    
+
+
+// z方向
+
+    for(int i = 2; i < I-2; i++)
+    {
+        int k=1;
+        for (int j = 0; j < J-2; j++)
+        {
+            
+            ex1[S0*i+S1*j+S2*k]=z1ex0[i][j]+((c*dt-dx)/(c*dt+dx))*(ex1[S0*(i+0)+S1*j+S2*(k+1)]-ex1[S0*i+S1*j+S2*k]);
+        }
+    }
+
+    for(int i = 2; i < I-2; i++)
+    {
+        int k=K-2;
+        for (int j = 0; j < J-2; j++)
+        {
+            
+            ex1[S0*i+S1*j+S2*k]=z1ex0[j][j]+((c*dt-dx)/(c*dt+dx))*(ex1[S0*(i+0)+S1*j+S2*(k-1)]-ex1[S0*i+S1*j+S2*k]);
+        }
+    }
+    for(int i = 2; i < I-2; i++)
+    {
+        int k=1;
+        for (int j = 0; j < J-2; j++)
+        {
+            
+            ey1[S0*i+S1*j+S2*k]=z1ey0[i][j]+((c*dt-dx)/(c*dt+dx))*(ey1[S0*(i+0)+S1*j+S2*(k+1)]-ey1[S0*i+S1*j+S2*k]);
+        }
+    }
+
+    for(int i = 2; i < I-2; i++)
+    {
+        int k=K-2;
+        for (int j = 0; j < J-2; j++)
+        {
+            
+            ey1[S0*i+S1*j+S2*k]=z1ey0[i][j]+((c*dt-dx)/(c*dt+dx))*(ey1[S0*(i+0)+S1*j+S2*(k-1)]-ey1[S0*i+S1*j+S2*k]);
+        }
+    }
+
+
+
+    }
+
+
+return 0;
 }
 
