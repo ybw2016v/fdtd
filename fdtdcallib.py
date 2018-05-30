@@ -78,3 +78,21 @@ class fdtdcallib(object):
         libcd.calmur1(nn)
         return 'OK'
     pass
+    def calmur2lib(self,n):
+        libcd=self.libc
+        nn=np.array(n,dtype=c_int)
+        libcd.calmur2.restype=c_int
+        libcd.calmur2.argtypes=[c_int]
+        libcd.calmur2(nn)
+        return 'OK'
+    pass
+    def initmur2(self,ex1,ey1,ez1):
+        libcd=self.libc
+        array_1d_double = npct.ndpointer(dtype=np.float64, ndim=3, flags='CONTIGUOUS') #声明指针类型级变量数据结构
+        ff=np.array(ex1.strides,dtype='int32')
+        dd=np.array(np.shape(ex1),dtype='int32')
+        libcd.initmur2.argtypes=[array_1d_double,array_1d_double,array_1d_double,npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS'),npct.ndpointer(dtype=c_int,ndim=1,flags='CONTIGUOUS')]
+        libcd.initmur2.restype = c_int
+        libcd.initmur2(ex1,ey1,ez1,ff,dd)
+        return 'OK'
+    pass
